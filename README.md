@@ -1,3 +1,14 @@
+# Report 
+This project aims at:
+1. Fetching the data from a Servicenow API.
+1. Manipulating the response into a HTML report(table).
+1. Push the report into a bucket.
+
+   ### Built with
+   * JavaScript
+   * [Node.js](https://nodejs.org/en/) - JavaScript runtime
+   * [npm](https://www.npmjs.com/package/npm) - a JavaScript package manager
+    
 # create-html.js
 
 > Create the content of an html file with one function call.
@@ -34,6 +45,8 @@ Run the project
 npm start
 ```
 
+You would find the report being generated in your project directory.
+
 ## License
 
-MIT © [vimbo95](https://github.com/vimbo95)
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
