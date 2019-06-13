@@ -18,6 +18,22 @@ var html = createHTML({
 })
 ```
 
+## Getting Started
+Clone the repo
+```
+https://github.com/vimbo95/report.git
+```
+
+Install the dependencies
+```
+npm install
+```
+
+Run the project 
+```
+npm start
+```
+
 ## License
 
 MIT © [vimbo95](https://github.com/vimbo95)
