@@ -2,7 +2,7 @@
 
 > Create the content of an html file with one function call.
 
-[![NPM](https://img.shields.io/npm/v/create-html.svg)] (https://www.npmjs.com/package/create-html) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/create-html.svg)](https://www.npmjs.com/package/create-html) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
