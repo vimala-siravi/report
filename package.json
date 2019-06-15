@@ -1,0 +1,36 @@
+{
+  "name": "report",
+  "version": "1.0.0",
+  "description": "create the content of a html file with one function call, json data to html table.",
+  "main": "report.js",
+  "scripts": {
+    "start": "nodemon ./script/report.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vimbo95/report.git"
+  },
+  "keywords": [
+    "json",
+    "html table",
+    "node.js"
+  ],
+  "author": "vimbo95",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vimbo95/report/issues"
+  },
+  "homepage": "https://github.com/vimbo95/report#readme",
+  "dependencies": {
+    "create-html": "^4.1.0",
+    "lodash": "^4.17.11",
+    "log4js": "^4.3.1",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "pretty": "^2.0.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
