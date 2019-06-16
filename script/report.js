@@ -1,24 +1,25 @@
 var pretty = require('pretty');
 var _ = require('lodash');
-const fetch = require('node-fetch');
+var fetch = require('node-fetch');
 var fs = require('fs');
 var createHTML = require('create-html');
-const request = require('request').defaults({strictSSL: false});
-const moment = require('moment');
+var request = require('request').defaults({strictSSL: false});
+var moment = require('moment');
 var path = require('path');
 var config= require('../config/config');
-const log4js = require('log4js');
+var log4js = require('log4js');
 
 log4js.configure({
   appenders: { chronic: { type: 'file', filename: 'chronicreport.log' } },
   categories: { default: { appenders: ['chronic'], level: 'debug' } }
 });
-const logger = log4js.getLogger(`ChronicReport-${new Date()}`);
+var logger = log4js.getLogger(`ChronicReport-${new Date()}`);
 
 var tableHtml = "";
 var date = new Date();
 
 function connectToServicenow(){
+    "use strict";
     logger.info(`Fetching data from - ${config.settings.servicenow}`);
     console.log("fetching from " + config.settings.servicenow);
     return fetch(config.settings.servicenow,{
@@ -33,11 +34,11 @@ function connectToServicenow(){
 }
 
 function fetchContents(contents){
- return new Promise(function(resolve, reject) { 
+ return new Promise(function(resolve, reject) {
     logger.debug("Iterating through the 'result' array of objects to be displayed in table");
     _.forEach(contents.result,function(value,key){
       // logger.debug("Ticket Numbers: " + value.number);
-      tableHtml = tableHtml+'<tr>'+    
+      tableHtml = tableHtml+'<tr>'+
       '<td>'+'<a href ='+config.settings.servicenowsysid+value.sys_id+'<a target="_blank">'+value.number+'</a>'+'</td>'+
       '<td>'+value.u_related_incidents+'</td>'+
       '<td>'+value.cmdb_ci.display_value+'</td>'+
@@ -50,7 +51,7 @@ function fetchContents(contents){
 }
 
 function createReport(){
-  return new Promise(function(resolve, reject) { 
+  return new Promise(function(resolve, reject) {
    var html = createHTML({
     title: "Offender Configuration Items - " + (new Date().toUTCString()),
       scriptAsync: true,
@@ -75,14 +76,14 @@ function createReport(){
       '<div class="alert alert-primary" role="alert">Note: Count of duplicate tickets mentioned in summary and number of related incidents might vary</div>'+
       '<table class="table table-hover">'+
           '<thead>'+
-          '<th scope="col">Number</th>'+ 
-          '<th scope="col">Related Incidents</th>'+ 
-          '<th scope="col">Configuration Item</th>'+ 
+          '<th scope="col">Number</th>'+
+          '<th scope="col">Related Incidents</th>'+
+          '<th scope="col">Configuration Item</th>'+
           '<th scope="col">Summary</th>'+
           '<th scope="col">Company</th>'+
           '</thead>'+
-          '<tbody>'+ 
-          tableHtml +    
+          '<tbody>'+
+          tableHtml +
           '</tbody>'+
       '</table>'+
       '</main>'+
@@ -93,7 +94,7 @@ function createReport(){
               '<br>'+
               '<span class="text-muted">Chronic Group Report</span>'+
           '</div>'+
-      '</footer>'    
+      '</footer>'
     })
     resolve(html);
   })
@@ -110,10 +111,10 @@ function generateReport(html){
                 if (err) {
                   logger.error(err)
                   reject()
-                } 
+                }
                 resolve();
               })
-          }        
+          }
       }catch(err){
           logger.debug(err);
           reject(err);
@@ -140,7 +141,6 @@ function uploadReport(){
         'X-bucket-Meta-Report-Year': moment().format('YYYY')
       }
     };
-            
     return new Promise(function(resolve, reject) {
       fs.createReadStream(fullpath).pipe(request(options, function(error, response, body){
         logger.debug("Uploading Report to bucket");
