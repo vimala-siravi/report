@@ -8,7 +8,7 @@ This project aims at:
 
 > Create the content of an html file with one function call.
 
-[![NPM](https://img.shields.io/npm/v/create-html.svg)]
+[![NPM](https://img.shields.io/npm/v/create-html.svg)](https://www.npmjs.com/package/create-html) 
 
 ## Install
 
