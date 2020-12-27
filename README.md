@@ -27,7 +27,7 @@ var html = createHTML({
 ## Getting Started
 Clone the repo
 ```
-https://github.com/vimbo95/report.git
+https://github.com/vimala95/report.git
 ```
 
 Install the dependencies
